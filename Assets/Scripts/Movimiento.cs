@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Movimiento : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float velocidad = 5.0f;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        // Obtén la entrada del teclado
+        float movimientoHorizontal = Input.GetAxis("Horizontal");
+        float movimientoVertical = Input.GetAxis("Vertical");
+
+        // Calcula la dirección del movimiento
+        Vector3 movimiento = new Vector3(movimientoHorizontal, 0, movimientoVertical);
+
+        // Normaliza el vector de movimiento para evitar movimientos diagonales más rápidos
+        movimiento.Normalize();
+
+        // Aplica el movimiento al personaje
+        transform.Translate(movimiento * velocidad * Time.deltaTime);
     }
 }
