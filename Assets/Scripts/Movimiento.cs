@@ -8,10 +8,6 @@ public class Movimiento : MonoBehaviour
     public float velocidad = 5.0f;
     public Vector2 sensibilidad;
     public new Transform camera;
-    private List<Item> inventario = new List<Item>();
-    private List<GameObject> uiInventario = new List<GameObject>();
-    public GameObject itemIconPrefab;
-    public Transform contenidoInventario;
 
     // Start is called before the first frame update
     void Start()
@@ -66,12 +62,4 @@ public class Movimiento : MonoBehaviour
         }
     }
 
-    public void AnadirInventario(Item item)
-    {
-        inventario.Add(item);
-        GameObject go = Instantiate(itemIconPrefab, contenidoInventario);
-        Image im = go.GetComponent<Image>();
-        im.sprite = item.itemIcon;
-        uiInventario.Add(go);
-    }
 }
