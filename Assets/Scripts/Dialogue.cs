@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Dialogue : MonoBehaviour
 {
-    
+
 
     [SerializeField] private GameObject BotonRespuesta1;
     [SerializeField] private GameObject BotonRespuesta2;
@@ -14,7 +14,7 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private GameObject BotonRespuesta4;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
-    [SerializeField, TextArea(4,6)] private string[] dialogueLines;
+    [SerializeField, TextArea(4, 6)] private string[] dialogueLines;
 
     //[SerializeField] TextMeshProUGUI textResUno;
     //[SerializeField] TextMeshProUGUI textResDos;
@@ -28,7 +28,7 @@ public class Dialogue : MonoBehaviour
     private bool isPlayerInRange;
     private bool isDialogueStarted;
     private int lineIndex;
-    
+
     private void Update()
     {
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
@@ -51,7 +51,6 @@ public class Dialogue : MonoBehaviour
 
     private void StartDialogue()
     {
-        
         isDialogueStarted = true;
         dialoguePanel.SetActive(true);
         lineIndex = 0;
@@ -77,7 +76,8 @@ public class Dialogue : MonoBehaviour
             Time.timeScale = 1f;
             typingTime = 0.05f;
         }
-        if(lineIndex == dialogueLines.Length-1){
+        if (lineIndex == dialogueLines.Length - 2)
+        {
             BotonRespuesta1.SetActive(true);
             BotonRespuesta2.SetActive(true);
             BotonRespuesta3.SetActive(true);
@@ -92,10 +92,8 @@ public class Dialogue : MonoBehaviour
 
         foreach (char ch in dialogueLines[lineIndex])
         {
-            
             dialogueText.text += ch;
             yield return new WaitForSecondsRealtime(typingTime);
-            
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -116,15 +114,16 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    public void acertado(){
-           Debug.Log("Clickado");
-            isDialogueStarted = false;
-            dialoguePanel.SetActive(false);
-            BotonRespuesta1.SetActive(false);
-            BotonRespuesta2.SetActive(false);
-            BotonRespuesta3.SetActive(false);
-            BotonRespuesta4.SetActive(false);
-            Time.timeScale = 1f;
-            typingTime = 0.05f;
+    public void acertado()
+    {
+        Debug.Log("Clickado");
+        NextDialogueLine();
+
+        BotonRespuesta1.SetActive(false);
+        BotonRespuesta2.SetActive(false);
+        BotonRespuesta3.SetActive(false);
+        BotonRespuesta4.SetActive(false);
+
+        typingTime = 0.05f;
     }
 }

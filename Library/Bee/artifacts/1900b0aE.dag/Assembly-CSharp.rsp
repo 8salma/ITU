@@ -361,6 +361,7 @@
 "Assets/Scripts/ItemObject.cs"
 "Assets/Scripts/ItemSlot.cs"
 "Assets/Scripts/Movimiento.cs"
+"Assets/Troll_Сannibal/Script/TrolControl.cs"
 -langversion:9.0
 
 /deterministic
