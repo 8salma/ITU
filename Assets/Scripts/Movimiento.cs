@@ -8,6 +8,10 @@ public class Movimiento : MonoBehaviour
     public float velocidad = 5.0f;
     public Vector2 sensibilidad;
     public new Transform camera;
+    public float jumpSpeed = 8.0f;
+        public float gravedad = 20.0f;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +34,14 @@ public class Movimiento : MonoBehaviour
 
         // Aplica el movimiento al personaje
         transform.Translate(movimiento * velocidad * Time.deltaTime);
+
+        // Salto
+        if (Input.GetKey(KeyCode.Space))
+        {
+            movimiento.y = jumpSpeed;
+            Debug.Log("aaa");
+        }
+        movimiento.y -= gravedad * Time.deltaTime;
 
         UpdateMouseLook();
     }

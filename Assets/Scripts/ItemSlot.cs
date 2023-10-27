@@ -11,8 +11,5 @@ public class ItemSlot : MonoBehaviour
     public void Set(InventoryItem item)
     {
         _itemName.text = item.data.itemName;
- 
-
-
     }
 }
