@@ -8,9 +8,8 @@ public class Movimiento : MonoBehaviour
     public float velocidad = 5.0f;
     public Vector2 sensibilidad;
     public new Transform camera;
-    public float jumpSpeed = 8.0f;
-        public float gravedad = 20.0f;
-
+    private bool enSuelo = true; // Variable para verificar si el personaje está en el suelo
+    public float saltoFuerza = 8.0f; // Fuerza del salto
 
 
     // Start is called before the first frame update
@@ -35,15 +34,15 @@ public class Movimiento : MonoBehaviour
         // Aplica el movimiento al personaje
         transform.Translate(movimiento * velocidad * Time.deltaTime);
 
-        // Salto
-        if (Input.GetKey(KeyCode.Space))
-        {
-            movimiento.y = jumpSpeed;
-            Debug.Log("aaa");
-        }
-        movimiento.y -= gravedad * Time.deltaTime;
-
         UpdateMouseLook();
+
+        // Verificar si se presiona la tecla de espacio y el personaje está en el suelo
+        if (Input.GetButtonDown("Jump") && enSuelo)
+        {
+            // Aplicar una fuerza vertical para el salto
+            GetComponent<Rigidbody>().AddForce(Vector3.up * saltoFuerza, ForceMode.Impulse);
+            enSuelo = false; // El personaje ya no está en el suelo
+        }
     }
 
     // Movimiento camara en primera persona
@@ -73,5 +72,21 @@ public class Movimiento : MonoBehaviour
             camera.Rotate(-ver * sensibilidad.y, 0, 0);
         }
     }
+    // Detectar cuando el personaje toca el suelo
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Suelo")) // Ajusta la etiqueta según tu escenario
+        {
+            enSuelo = true; // El personaje está en el suelo
+        }
+    }
 
+    // Detectar cuando el personaje se separa del suelo
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Suelo")) // Ajusta la etiqueta según tu escenario
+        {
+            enSuelo = false; // El personaje ya no está en el suelo
+        }
+    }
 }
