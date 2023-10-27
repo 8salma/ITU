@@ -6,9 +6,23 @@ using UnityEngine;
 
 public class Dialogue : MonoBehaviour
 {
+    
+
+    [SerializeField] private GameObject BotonRespuesta1;
+    [SerializeField] private GameObject BotonRespuesta2;
+    [SerializeField] private GameObject BotonRespuesta3;
+    [SerializeField] private GameObject BotonRespuesta4;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField, TextArea(4,6)] private string[] dialogueLines;
+
+    //[SerializeField] TextMeshProUGUI textResUno;
+    //[SerializeField] TextMeshProUGUI textResDos;
+    //[SerializeField] TextMeshProUGUI textResTres;
+
+    //[SerializeField] PlantillaDialogo plantilla;
+    //[SerializeField] PlantillaDialogo[] arrayPlantillas;
+
 
     private float typingTime = 0.05f;
     private bool isPlayerInRange;
@@ -37,6 +51,7 @@ public class Dialogue : MonoBehaviour
 
     private void StartDialogue()
     {
+        
         isDialogueStarted = true;
         dialoguePanel.SetActive(true);
         lineIndex = 0;
@@ -55,7 +70,19 @@ public class Dialogue : MonoBehaviour
         {
             isDialogueStarted = false;
             dialoguePanel.SetActive(false);
+            BotonRespuesta1.SetActive(false);
+            BotonRespuesta2.SetActive(false);
+            BotonRespuesta3.SetActive(false);
+            BotonRespuesta4.SetActive(false);
             Time.timeScale = 1f;
+            typingTime = 0.05f;
+        }
+        if(lineIndex == dialogueLines.Length-1){
+            BotonRespuesta1.SetActive(true);
+            BotonRespuesta2.SetActive(true);
+            BotonRespuesta3.SetActive(true);
+            BotonRespuesta4.SetActive(true);
+            typingTime = 0f;
         }
     }
 
@@ -65,8 +92,10 @@ public class Dialogue : MonoBehaviour
 
         foreach (char ch in dialogueLines[lineIndex])
         {
+            
             dialogueText.text += ch;
             yield return new WaitForSecondsRealtime(typingTime);
+            
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -85,5 +114,17 @@ public class Dialogue : MonoBehaviour
             isPlayerInRange = false;
             Debug.Log("No se puede iniciar el diálogo");
         }
+    }
+
+    public void acertado(){
+           Debug.Log("Clickado");
+            isDialogueStarted = false;
+            dialoguePanel.SetActive(false);
+            BotonRespuesta1.SetActive(false);
+            BotonRespuesta2.SetActive(false);
+            BotonRespuesta3.SetActive(false);
+            BotonRespuesta4.SetActive(false);
+            Time.timeScale = 1f;
+            typingTime = 0.05f;
     }
 }
