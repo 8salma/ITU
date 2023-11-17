@@ -33,6 +33,10 @@ public class Dialogue : MonoBehaviour
     {
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
         {
+            // mostrar cursor
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
             if (!isDialogueStarted)
             {
                 StartDialogue();
@@ -43,7 +47,11 @@ public class Dialogue : MonoBehaviour
             }
             else
             {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+
                 StopAllCoroutines();
+
                 dialogueText.text = dialogueLines[lineIndex];
             }
         }
@@ -116,6 +124,10 @@ public class Dialogue : MonoBehaviour
 
     public void acertado()
     {
+        // hacemos invisible el cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         Debug.Log("Clickado");
         NextDialogueLine();
 
