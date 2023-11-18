@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Suelo
+  - Manzana
+  - "Ara\xF1a"
+  - UI
   layers:
   - Default
   - TransparentFX

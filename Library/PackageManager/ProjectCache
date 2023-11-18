@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638334055665363867
-    m_Hash: 721017021
+      ticks: 638336879443975244
+    m_Hash: 2850356363
   m_LockFileStatus:
     m_FilePath: C:/Unity/ITU/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638334056367672605
-    m_Hash: 2311458558
+      ticks: 638336879443986836
+    m_Hash: 3977217051
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -3137,7 +3137,6 @@ m_ResolvedPackages:
     - 1.3.7
     - 1.3.8
     - 1.3.9
-    - 1.4.0
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12
@@ -3153,7 +3152,6 @@ m_ResolvedPackages:
     - 1.3.7
     - 1.3.8
     - 1.3.9
-    - 1.4.0
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12

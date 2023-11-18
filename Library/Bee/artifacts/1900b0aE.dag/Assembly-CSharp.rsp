@@ -109,7 +109,6 @@
 -define:ENABLE_UNITY_COLLECTIONS_CHECKS
 -define:ENABLE_BURST_AOT
 -define:UNITY_TEAM_LICENSE
--define:UNITY_PRO_LICENSE
 -define:ENABLE_CUSTOM_RENDER_TEXTURE
 -define:ENABLE_DIRECTOR
 -define:ENABLE_LOCALIZATION
@@ -357,6 +356,8 @@
 "Assets/LowPolyGround/TutorialInfo/Scripts/buttonAssetstore.cs"
 "Assets/LowPolyGround/TutorialInfo/Scripts/Readme.cs"
 "Assets/Scripts/Dialogue.cs"
+"Assets/Scripts/EscenaLaberinto/Dialogo.cs"
+"Assets/Scripts/EscenaLaberinto/Manzana.cs"
 "Assets/Scripts/InventoryItem.cs"
 "Assets/Scripts/InventoryItemData.cs"
 "Assets/Scripts/InventorySystem.cs"

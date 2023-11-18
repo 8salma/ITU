@@ -10,6 +10,8 @@ public class Movimiento : MonoBehaviour
     public new Transform camera;
     private bool enSuelo = true; // Variable para verificar si el personaje está en el suelo
     public float saltoFuerza = 8.0f; // Fuerza del salto
+    public float manzanasRecolectadas = 0;
+    public bool ayuda;
 
 
     // Start is called before the first frame update
