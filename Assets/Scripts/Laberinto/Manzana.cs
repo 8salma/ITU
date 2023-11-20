@@ -34,7 +34,6 @@ public class Manzana : MonoBehaviour
 
         if (player.GetComponent<Movimiento>().manzanasRecolectadas == 6 && ayuda)
         {
-            sonidoPuerta.Play();
             Debug.Log("Papaya");
             Destroy(puerta);
             canvas.SetActive(false);
@@ -59,8 +58,6 @@ public class Manzana : MonoBehaviour
 
     private void UpdateManzanas()
     {
-        //GameObject go = GameObject.FindGameObjectWithTag("UI");
-        Debug.Log("Papaya");
         contador.text = "Manzanas: " + player.GetComponent<Movimiento>().manzanasRecolectadas;
     }
 }

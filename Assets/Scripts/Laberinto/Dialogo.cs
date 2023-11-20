@@ -32,6 +32,7 @@ public class Dialogo : MonoBehaviour
     private bool isDialogueStarted;
     private int lineIndex;
     public GameObject canvas;
+    public GameObject bloqueo;
     private bool heHablado = false;
 
     // Start is called before the first frame update
@@ -145,6 +146,8 @@ public class Dialogo : MonoBehaviour
         player.GetComponent<Movimiento>().ayuda = true;
 
         canvas.SetActive(true);
+
+        Destroy(bloqueo);
     }
     public void noAyuda()
     {
@@ -157,6 +160,7 @@ public class Dialogo : MonoBehaviour
 
         player.GetComponent<Movimiento>().ayuda = false;
         Destroy(puerta);
+        Destroy(bloqueo);
     }
 
     private IEnumerator ShowNoAyuda()
