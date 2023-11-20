@@ -6,8 +6,7 @@ using UnityEngine;
 
 public class Dialogue : MonoBehaviour
 {
-
-
+    public GameObject player;
     [SerializeField] private GameObject BotonRespuesta1;
     [SerializeField] private GameObject BotonRespuesta2;
     [SerializeField] private GameObject BotonRespuesta3;
@@ -16,23 +15,26 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField, TextArea(4, 6)] private string[] dialogueLines;
 
-    //[SerializeField] TextMeshProUGUI textResUno;
-    //[SerializeField] TextMeshProUGUI textResDos;
-    //[SerializeField] TextMeshProUGUI textResTres;
-
-    //[SerializeField] PlantillaDialogo plantilla;
-    //[SerializeField] PlantillaDialogo[] arrayPlantillas;
-
+    [SerializeField, TextArea(4, 6)] private string[] dialogueAcertado;
+    [SerializeField, TextArea(4, 6)] private string[] dialogueFallado;
 
     private float typingTime = 0.05f;
     private bool isPlayerInRange;
     private bool isDialogueStarted;
-    private int lineIndex;
+    private bool acierto = false;
+    private bool error = false;
+    private int lineIndex = 0;
+    private int lineIndexMax;
+    private int lineIndexAcertado = 0;
+    private int lineIndexFallado = 0;
 
     private void Update()
     {
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
         {
+            // bloquear movimiento y camara del personaje
+            player.GetComponent<Movimiento>().estaEnDialogo = true;
+
             // mostrar cursor
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -41,20 +43,18 @@ public class Dialogue : MonoBehaviour
             {
                 StartDialogue();
             }
-            else if (dialogueText.text == dialogueLines[lineIndex])
+            else if ((dialogueText.text == dialogueLines[lineIndex]) || (dialogueText.text == dialogueAcertado[lineIndexAcertado]) || (dialogueText.text == dialogueFallado[lineIndexFallado]))
             {
                 NextDialogueLine();
             }
             else
             {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-
                 StopAllCoroutines();
-
                 dialogueText.text = dialogueLines[lineIndex];
             }
         }
+        // desbloquear movimiento y camara del personaje
+        //player.GetComponent<Movimiento>().estaEnDialogo = false;
     }
 
     private void StartDialogue()
@@ -62,29 +62,50 @@ public class Dialogue : MonoBehaviour
         isDialogueStarted = true;
         dialoguePanel.SetActive(true);
         lineIndex = 0;
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
+        lineIndexMax = dialogueLines.Length;
         StartCoroutine(ShowLine());
     }
 
     private void NextDialogueLine()
     {
-        lineIndex++;
-        if (lineIndex < dialogueLines.Length)
+
+        if ((lineIndex < dialogueLines.Length) && (!acierto && !error))
         {
+            lineIndex++;
             StartCoroutine(ShowLine());
         }
         else
         {
-            isDialogueStarted = false;
-            dialoguePanel.SetActive(false);
-            BotonRespuesta1.SetActive(false);
-            BotonRespuesta2.SetActive(false);
-            BotonRespuesta3.SetActive(false);
-            BotonRespuesta4.SetActive(false);
-            Time.timeScale = 1f;
-            typingTime = 0.05f;
+
+            if (error == true && lineIndexFallado < dialogueFallado.Length - 1)
+            {
+                lineIndexFallado++;
+                StartCoroutine(ShowLine());
+
+            }
+            else if (acierto == true && lineIndexAcertado < dialogueAcertado.Length - 1)
+            {
+                lineIndexAcertado++;
+                StartCoroutine(ShowLine());
+
+            }
+            else if (lineIndexAcertado >= dialogueAcertado.Length - 1 || lineIndexFallado >= dialogueFallado.Length - 1)
+            {
+                isDialogueStarted = false;
+                dialoguePanel.SetActive(false);
+
+                // Time.timeScale = 1f;
+
+                // desbloquear movimiento y camara del personaje
+                player.GetComponent<Movimiento>().estaEnDialogo = false;
+
+                typingTime = 0.05f;
+                acierto = false;
+                error = false;
+            }
         }
-        if (lineIndex == dialogueLines.Length - 2)
+        if (lineIndex == dialogueLines.Length - 1)
         {
             BotonRespuesta1.SetActive(true);
             BotonRespuesta2.SetActive(true);
@@ -92,16 +113,38 @@ public class Dialogue : MonoBehaviour
             BotonRespuesta4.SetActive(true);
             typingTime = 0f;
         }
+
     }
 
     private IEnumerator ShowLine()
     {
         dialogueText.text = string.Empty;
-
-        foreach (char ch in dialogueLines[lineIndex])
+        if (!error && !acierto)
         {
-            dialogueText.text += ch;
-            yield return new WaitForSecondsRealtime(typingTime);
+            foreach (char ch in dialogueLines[lineIndex])
+            {
+                dialogueText.text += ch;
+                yield return new WaitForSecondsRealtime(typingTime);
+            }
+
+        }
+        else if (error)
+        {
+            foreach (char ch in dialogueFallado[lineIndexFallado])
+            {
+                dialogueText.text += ch;
+                yield return new WaitForSecondsRealtime(typingTime);
+            }
+
+        }
+        else if (acierto)
+        {
+            foreach (char ch in dialogueAcertado[lineIndexAcertado])
+            {
+                dialogueText.text += ch;
+                yield return new WaitForSecondsRealtime(typingTime);
+            }
+
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -128,7 +171,30 @@ public class Dialogue : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        acierto = true;
+        lineIndexAcertado = -1;
+        lineIndex--;
         Debug.Log("Clickado");
+        NextDialogueLine();
+
+        BotonRespuesta1.SetActive(false);
+        BotonRespuesta2.SetActive(false);
+        BotonRespuesta3.SetActive(false);
+        BotonRespuesta4.SetActive(false);
+
+        typingTime = 0.05f;
+    }
+
+    public void fallado()
+    {
+        // hacemos invisible el cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        
+        error = true;
+        lineIndexFallado = -1;
+        lineIndex--;
+        Debug.Log("Clickado fallado");
         NextDialogueLine();
 
         BotonRespuesta1.SetActive(false);

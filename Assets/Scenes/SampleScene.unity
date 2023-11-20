@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 189008643}
   - component: {fileID: 189008642}
   m_Layer: 5
-  m_Name: BotonRespuesta1
+  m_Name: BotonInconrecto1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -249,7 +249,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 189008643}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2091290297}
+        m_TargetAssemblyTypeName: Dialogue, Assembly-CSharp
+        m_MethodName: fallado
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &189008643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,6 +451,9 @@ MonoBehaviour:
   sensibilidad: {x: 0.25, y: 0.25}
   camera: {fileID: 963194228}
   saltoFuerza: 8
+  manzanasRecolectadas: 0
+  ayuda: 0
+  estaEnDialogo: 0
 --- !u!1 &387460962
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,7 +467,7 @@ GameObject:
   - component: {fileID: 387460965}
   - component: {fileID: 387460964}
   m_Layer: 5
-  m_Name: BotonRespuesta4
+  m_Name: BotonInconrecto3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -521,7 +536,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 387460965}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2091290297}
+        m_TargetAssemblyTypeName: Dialogue, Assembly-CSharp
+        m_MethodName: fallado
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &387460965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,7 +810,7 @@ GameObject:
   - component: {fileID: 587723751}
   - component: {fileID: 587723750}
   m_Layer: 5
-  m_Name: BotonRespuesta3
+  m_Name: BotonCorrecto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -916,7 +943,7 @@ GameObject:
   - component: {fileID: 616189105}
   - component: {fileID: 616189104}
   m_Layer: 5
-  m_Name: BotonRespuesta2
+  m_Name: BotonInconrecto2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -985,7 +1012,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 616189105}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2091290297}
+        m_TargetAssemblyTypeName: Dialogue, Assembly-CSharp
+        m_MethodName: fallado
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &616189105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1862,8 +1901,8 @@ RectTransform:
   - {fileID: 442792998}
   - {fileID: 189008641}
   - {fileID: 616189103}
-  - {fileID: 587723749}
   - {fileID: 387460963}
+  - {fileID: 587723749}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2529,7 +2568,7 @@ Transform:
   m_GameObject: {fileID: 2091290291}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.99795914, z: -0, w: 0.063856006}
-  m_LocalPosition: {x: 2.33, y: 1.33525, z: 5.47}
+  m_LocalPosition: {x: 1.9, y: 1.33525, z: 2.12}
   m_LocalScale: {x: 2.6705, y: 2.6705, z: 2.6705}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2575,6 +2614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127a9fb9dfc35d149b9be788b846b782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 272421360}
   BotonRespuesta1: {fileID: 189008640}
   BotonRespuesta2: {fileID: 616189102}
   BotonRespuesta3: {fileID: 587723748}
@@ -2591,7 +2631,10 @@ MonoBehaviour:
   - "Enano: Puede devorar todas las cosas: plantas, bestias, flores y aves. Roe el
     hierro y muerde acero, mata reyes, arruina ciudades y puede derribar las altas
     monta\xF1as. \xBFQu\xE9 es?"
-  - Has acertado
+  dialogueAcertado:
+  - "Enano: Has acertado. Pasar podr\xE1s."
+  dialogueFallado:
+  - 'Enano: Has fallado. Vete por donde has venido.'
 --- !u!1 &2096851962
 GameObject:
   m_ObjectHideFlags: 0

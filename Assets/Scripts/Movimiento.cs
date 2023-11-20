@@ -12,6 +12,7 @@ public class Movimiento : MonoBehaviour
     public float saltoFuerza = 8.0f; // Fuerza del salto
     public float manzanasRecolectadas = 0;
     public bool ayuda;
+    public bool estaEnDialogo = false;
 
 
     // Start is called before the first frame update
@@ -23,27 +24,10 @@ public class Movimiento : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Obtén la entrada del teclado
-        float movimientoHorizontal = Input.GetAxis("Horizontal");
-        float movimientoVertical = Input.GetAxis("Vertical");
-
-        // Calcula la dirección del movimiento
-        Vector3 movimiento = new Vector3(movimientoHorizontal, 0, movimientoVertical);
-
-        // Normaliza el vector de movimiento para evitar movimientos diagonales más rápidos
-        movimiento.Normalize();
-
-        // Aplica el movimiento al personaje
-        transform.Translate(movimiento * velocidad * Time.deltaTime);
-
-        UpdateMouseLook();
-
-        // Verificar si se presiona la tecla de espacio y el personaje está en el suelo
-        if (Input.GetButtonDown("Jump") && enSuelo)
+        if (!estaEnDialogo)
         {
-            // Aplicar una fuerza vertical para el salto
-            GetComponent<Rigidbody>().AddForce(Vector3.up * saltoFuerza, ForceMode.Impulse);
-            enSuelo = false; // El personaje ya no está en el suelo
+            UpdateMouseLook();
+            UpdateMovimiento();
         }
     }
 
@@ -72,6 +56,30 @@ public class Movimiento : MonoBehaviour
                 rotation.x = 280;
             }
             camera.Rotate(-ver * sensibilidad.y, 0, 0);
+        }
+    }
+
+    private void UpdateMovimiento()
+    {
+        // Obtén la entrada del teclado
+        float movimientoHorizontal = Input.GetAxis("Horizontal");
+        float movimientoVertical = Input.GetAxis("Vertical");
+
+        // Calcula la dirección del movimiento
+        Vector3 movimiento = new Vector3(movimientoHorizontal, 0, movimientoVertical);
+
+        // Normaliza el vector de movimiento para evitar movimientos diagonales más rápidos
+        movimiento.Normalize();
+
+        // Aplica el movimiento al personaje
+        transform.Translate(movimiento * velocidad * Time.deltaTime);
+
+        // Verificar si se presiona la tecla de espacio y el personaje está en el suelo
+        if (Input.GetButtonDown("Jump") && enSuelo)
+        {
+            // Aplicar una fuerza vertical para el salto
+            GetComponent<Rigidbody>().AddForce(Vector3.up * saltoFuerza, ForceMode.Impulse);
+            enSuelo = false; // El personaje ya no está en el suelo
         }
     }
     // Detectar cuando el personaje toca el suelo
