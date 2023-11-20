@@ -8,6 +8,7 @@ TagManager:
   - Manzana
   - "Ara\xF1a"
   - UI
+  - NPC
   layers:
   - Default
   - TransparentFX

@@ -23,35 +23,38 @@ public class Dialogue : MonoBehaviour
     private bool isDialogueStarted;
     private bool acierto = false;
     private bool error = false;
+    private bool puente = false;
     private int lineIndex = 0;
     private int lineIndexMax;
     private int lineIndexAcertado = 0;
     private int lineIndexFallado = 0;
+    private CapsuleCollider collider;
 
     private void Update()
     {
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            // bloquear movimiento y camara del personaje
-            player.GetComponent<Movimiento>().estaEnDialogo = true;
+            
 
             // mostrar cursor
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
-            if (!isDialogueStarted)
+            if (!puente)
             {
                 StartDialogue();
             }
-            else if ((dialogueText.text == dialogueLines[lineIndex]) || (dialogueText.text == dialogueAcertado[lineIndexAcertado]) || (dialogueText.text == dialogueFallado[lineIndexFallado]))
+            else if ((dialogueText.text == dialogueLines[lineIndex]) && (!isDialogueStarted) || (dialogueText.text == dialogueAcertado[lineIndexAcertado]) && (!isDialogueStarted) || (dialogueText.text == dialogueFallado[lineIndexFallado]) && (!isDialogueStarted))
             {
                 NextDialogueLine();
             }
-            else
+            
+            else if (!isDialogueStarted)
             {
                 StopAllCoroutines();
                 dialogueText.text = dialogueLines[lineIndex];
             }
+            
         }
         // desbloquear movimiento y camara del personaje
         //player.GetComponent<Movimiento>().estaEnDialogo = false;
@@ -59,12 +62,16 @@ public class Dialogue : MonoBehaviour
 
     private void StartDialogue()
     {
-        isDialogueStarted = true;
+        // bloquear movimiento y camara del personaje
+        player.GetComponent<Movimiento>().estaEnDialogo = true;
+        
+        puente = true;
         dialoguePanel.SetActive(true);
         lineIndex = 0;
         //Time.timeScale = 0f;
         lineIndexMax = dialogueLines.Length;
         StartCoroutine(ShowLine());
+        collider = GameObject.Find("NPC").GetComponent<CapsuleCollider>();
     }
 
     private void NextDialogueLine()
@@ -92,7 +99,8 @@ public class Dialogue : MonoBehaviour
             }
             else if (lineIndexAcertado >= dialogueAcertado.Length - 1 || lineIndexFallado >= dialogueFallado.Length - 1)
             {
-                isDialogueStarted = false;
+                isDialogueStarted = true;
+                //puente = false;
                 dialoguePanel.SetActive(false);
 
                 // Time.timeScale = 1f;
@@ -167,6 +175,7 @@ public class Dialogue : MonoBehaviour
 
     public void acertado()
     {
+        
         // hacemos invisible el cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -181,12 +190,16 @@ public class Dialogue : MonoBehaviour
         BotonRespuesta2.SetActive(false);
         BotonRespuesta3.SetActive(false);
         BotonRespuesta4.SetActive(false);
-
+        
         typingTime = 0.05f;
+        collider.enabled = false;
+        
+        
     }
 
     public void fallado()
     {
+        
         // hacemos invisible el cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
