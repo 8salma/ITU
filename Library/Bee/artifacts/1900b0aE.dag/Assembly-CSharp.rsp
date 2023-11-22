@@ -365,6 +365,7 @@
 "Assets/Scripts/Acertijo/Inventario/InventoryUI.cs"
 "Assets/Scripts/Acertijo/Inventario/ItemObject.cs"
 "Assets/Scripts/Acertijo/Inventario/ItemSlot.cs"
+"Assets/Scripts/DialogueArbol.cs"
 "Assets/Scripts/Laberinto/Dialogo.cs"
 "Assets/Scripts/Laberinto/Manzana.cs"
 "Assets/Scripts/Laberinto/SonidoPuerta.cs"

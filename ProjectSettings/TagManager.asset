@@ -9,6 +9,7 @@ TagManager:
   - "Ara\xF1a"
   - UI
   - NPC
+  - Arbol
   layers:
   - Default
   - TransparentFX
