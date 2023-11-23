@@ -49,7 +49,6 @@
      <Compile Include="Assets\Scripts\ArbolSabio\DialogueArbol.cs" />
      <Compile Include="Assets\Scripts\Principal\Inventario\InventorySystem.cs" />
      <Compile Include="Assets\Scripts\Laberinto\Manzana.cs" />
-     <Compile Include="Assets\LowPolyGround\TutorialInfo\Scripts\buttonAssetstore.cs" />
      <Compile Include="Assets\Bosque\Lowpoly_Demos\Environment_Free\Helpers\MouseLook.cs" />
      <Compile Include="Assets\LowPolyGround\Scripts\FreeCamera.cs" />
      <Compile Include="Assets\Scripts\Principal\Inventario\ItemSlot.cs" />
@@ -59,7 +58,6 @@
      <Compile Include="Assets\Scripts\Principal\Inventario\ItemObject.cs" />
      <Compile Include="Assets\Troll_Сannibal\Script\TrolControl.cs" />
      <Compile Include="Assets\Scripts\ArbolSabio\SceneDcha.cs" />
-     <Compile Include="Assets\LowPolyGround\TutorialInfo\Scripts\Readme.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Bosque\Lowpoly_Environments\Sources\Shaders\PT_Water_Shader_WebGl.shader" />

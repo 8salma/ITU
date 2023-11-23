@@ -98,7 +98,6 @@
 -define:NET_STANDARD_2_1
 -define:NETSTANDARD
 -define:NETSTANDARD2_1
--define:UNITY_PRO_LICENSE
 -define:ENABLE_CUSTOM_RENDER_TEXTURE
 -define:ENABLE_DIRECTOR
 -define:ENABLE_LOCALIZATION
@@ -308,14 +307,23 @@
 -r:"Library/Bee/artifacts/1900b0aP.dag/UnityEngine.UI.ref.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
-"Assets/Scripts/Dialogue.cs"
-"Assets/Scripts/InventoryItem.cs"
-"Assets/Scripts/InventoryItemData.cs"
-"Assets/Scripts/InventorySystem.cs"
-"Assets/Scripts/InventoryUI.cs"
-"Assets/Scripts/ItemObject.cs"
-"Assets/Scripts/ItemSlot.cs"
-"Assets/Scripts/Movimiento.cs"
+"Assets/Bosque/Lowpoly_Demos/Environment_Free/Helpers/MouseLook.cs"
+"Assets/Bosque/Lowpoly_Demos/Environment_Free/Helpers/PlayerMovement.cs"
+"Assets/LowPolyGround/Scripts/FreeCamera.cs"
+"Assets/Scripts/Acertijo/DialogoEnano.cs"
+"Assets/Scripts/ArbolSabio/DialogueArbol.cs"
+"Assets/Scripts/ArbolSabio/SceneDcha.cs"
+"Assets/Scripts/ArbolSabio/SceneIzq.cs"
+"Assets/Scripts/Laberinto/DialogoArana.cs"
+"Assets/Scripts/Laberinto/Manzana.cs"
+"Assets/Scripts/Laberinto/SonidoPuerta.cs"
+"Assets/Scripts/Principal/Inventario/InventoryItem.cs"
+"Assets/Scripts/Principal/Inventario/InventoryItemData.cs"
+"Assets/Scripts/Principal/Inventario/InventorySystem.cs"
+"Assets/Scripts/Principal/Inventario/InventoryUI.cs"
+"Assets/Scripts/Principal/Inventario/ItemObject.cs"
+"Assets/Scripts/Principal/Inventario/ItemSlot.cs"
+"Assets/Scripts/Principal/Movimiento.cs"
 "Assets/Troll_Сannibal/Script/TrolControl.cs"
 -langversion:9.0
 
