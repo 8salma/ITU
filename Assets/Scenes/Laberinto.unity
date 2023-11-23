@@ -6332,7 +6332,7 @@ GameObject:
   - component: {fileID: 1191914657}
   m_Layer: 0
   m_Name: Terreno
-  m_TagString: Untagged
+  m_TagString: Suelo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -7759,14 +7759,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357298219}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0010756833, y: -0.001879753, z: 0.0019729177, w: 0.9999957}
-  m_LocalPosition: {x: 73.16, y: 0.18, z: 68.06}
+  m_LocalRotation: {x: 0.000054889708, y: -0.50162584, z: 0.0022464392, w: 0.86508185}
+  m_LocalPosition: {x: 87.7, y: 0.22, z: 60.93}
   m_LocalScale: {x: 0.266401, y: 0.26640102, z: 0.266401}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2029900561}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -0.123, y: -0.216, z: 0.226}
+  m_LocalEulerAnglesHint: {x: 0.135, y: -60.215, z: 0.22}
 --- !u!1001 &1359281629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8853,9 +8853,11 @@ MonoBehaviour:
   dialoguePanel: {fileID: 1070732676}
   dialogueText: {fileID: 475758190}
   dialogueLines:
-  - Hola jovencita...
-  - "Una extra\xF1a mujer ha esparcido mis manzanas por este camino..."
-  - "\xBFSer\xEDas tan amable de ayudarme a encontrarlas? :("
+  - "Ara\xF1a con lega\xF1as: Hola jovencita..."
+  - "Ara\xF1a con lega\xF1as: Una extra\xF1a mujer ha esparcido mis manzanas por
+    este camino..."
+  - "Ara\xF1a con lega\xF1as: \xBFSer\xEDas tan amable de ayudarme a encontrarlas?
+    :("
   ayudaLines:
   - "\xA1Genial ni\xF1a, muchas gracias!"
   noAyudaLines:
@@ -11149,6 +11151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1357298219}
   puerta: {fileID: 1427606956}
+  canvas: {fileID: 1320924045}
 --- !u!82 &2029900565
 AudioSource:
   m_ObjectHideFlags: 0

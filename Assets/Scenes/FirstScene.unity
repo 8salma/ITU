@@ -1124,31 +1124,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4684103318404002527, guid: 84552fbe2826c14488cb31998d8d19a0, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9999957
+      value: -0.0018796173
       objectReference: {fileID: 0}
     - target: {fileID: 4684103318404002527, guid: 84552fbe2826c14488cb31998d8d19a0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0010756833
+      value: 0.001972918
       objectReference: {fileID: 0}
     - target: {fileID: 4684103318404002527, guid: 84552fbe2826c14488cb31998d8d19a0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.001879753
+      value: -0.99999577
       objectReference: {fileID: 0}
     - target: {fileID: 4684103318404002527, guid: 84552fbe2826c14488cb31998d8d19a0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0019729177
+      value: 0.0010756837
       objectReference: {fileID: 0}
     - target: {fileID: 4684103318404002527, guid: 84552fbe2826c14488cb31998d8d19a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -0.123
+      value: 0.123
       objectReference: {fileID: 0}
     - target: {fileID: 4684103318404002527, guid: 84552fbe2826c14488cb31998d8d19a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -0.216
+      value: -180.216
       objectReference: {fileID: 0}
     - target: {fileID: 4684103318404002527, guid: 84552fbe2826c14488cb31998d8d19a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.226
+      value: -0.226
       objectReference: {fileID: 0}
     - target: {fileID: 4714152392233513463, guid: 84552fbe2826c14488cb31998d8d19a0, type: 3}
       propertyPath: m_Name
@@ -1156,7 +1156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5507680513938052249, guid: 84552fbe2826c14488cb31998d8d19a0, type: 3}
       propertyPath: velocidad
-      value: 15
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

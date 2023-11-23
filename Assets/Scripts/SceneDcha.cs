@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class SceneDcha : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other){
-        if(other.tag == "Player"){
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
             SceneManager.LoadScene("Laberinto");
         }
     }
