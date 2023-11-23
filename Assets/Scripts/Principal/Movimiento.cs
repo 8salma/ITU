@@ -13,7 +13,7 @@ public class Movimiento : MonoBehaviour
     public float manzanasRecolectadas = 0;
     public bool ayuda;
     public bool estaEnDialogo = false;
-
+    public int puntuacionKarma = 0;
 
     // Start is called before the first frame update
     void Start()

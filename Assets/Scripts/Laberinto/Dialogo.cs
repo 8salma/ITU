@@ -136,6 +136,7 @@ public class Dialogo : MonoBehaviour
 
     public void Ayuda()
     {
+        player.GetComponent<Movimiento>().puntuacionKarma += 5;
         lineIndex = 0;
         StartCoroutine(ShowAyuda());
         BotonRespuesta1.SetActive(false);
@@ -151,6 +152,7 @@ public class Dialogo : MonoBehaviour
     }
     public void noAyuda()
     {
+        player.GetComponent<Movimiento>().puntuacionKarma -= 5;
         lineIndex = 0;
         StartCoroutine(ShowNoAyuda());
         BotonRespuesta1.SetActive(false);
