@@ -41,24 +41,24 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Laberinto\SonidoPuerta.cs" />
-     <Compile Include="Assets\Scripts\Laberinto\Dialogo.cs" />
-     <Compile Include="Assets\Scripts\Acertijo\Inventario\ItemSlot.cs" />
-     <Compile Include="Assets\Scripts\Acertijo\Inventario\InventorySystem.cs" />
-     <Compile Include="Assets\Scripts\SceneDcha.cs" />
-     <Compile Include="Assets\Scripts\Acertijo\Inventario\ItemObject.cs" />
+     <Compile Include="Assets\Scripts\Principal\Inventario\InventoryItemData.cs" />
+     <Compile Include="Assets\Scripts\Laberinto\DialogoArana.cs" />
+     <Compile Include="Assets\Scripts\Principal\Inventario\InventoryUI.cs" />
      <Compile Include="Assets\Bosque\Lowpoly_Demos\Environment_Free\Helpers\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\ArbolSabio\SceneIzq.cs" />
+     <Compile Include="Assets\Scripts\ArbolSabio\DialogueArbol.cs" />
+     <Compile Include="Assets\Scripts\Principal\Inventario\InventorySystem.cs" />
      <Compile Include="Assets\Scripts\Laberinto\Manzana.cs" />
      <Compile Include="Assets\LowPolyGround\TutorialInfo\Scripts\buttonAssetstore.cs" />
      <Compile Include="Assets\Bosque\Lowpoly_Demos\Environment_Free\Helpers\MouseLook.cs" />
-     <Compile Include="Assets\Scripts\Acertijo\Inventario\InventoryItem.cs" />
-     <Compile Include="Assets\Scripts\Acertijo\Inventario\InventoryItemData.cs" />
      <Compile Include="Assets\LowPolyGround\Scripts\FreeCamera.cs" />
+     <Compile Include="Assets\Scripts\Principal\Inventario\ItemSlot.cs" />
      <Compile Include="Assets\Scripts\Principal\Movimiento.cs" />
-     <Compile Include="Assets\Scripts\Acertijo\Dialogue.cs" />
-     <Compile Include="Assets\Scripts\SceneIzq.cs" />
-     <Compile Include="Assets\Scripts\Acertijo\Inventario\InventoryUI.cs" />
+     <Compile Include="Assets\Scripts\Acertijo\DialogoEnano.cs" />
+     <Compile Include="Assets\Scripts\Principal\Inventario\InventoryItem.cs" />
+     <Compile Include="Assets\Scripts\Principal\Inventario\ItemObject.cs" />
      <Compile Include="Assets\Troll_Сannibal\Script\TrolControl.cs" />
-     <Compile Include="Assets\Scripts\DialogueArbol.cs" />
+     <Compile Include="Assets\Scripts\ArbolSabio\SceneDcha.cs" />
      <Compile Include="Assets\LowPolyGround\TutorialInfo\Scripts\Readme.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
