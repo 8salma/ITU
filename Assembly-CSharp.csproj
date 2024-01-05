@@ -42,6 +42,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Laberinto\SonidoPuerta.cs" />
      <Compile Include="Assets\Scripts\Principal\Inventario\InventoryItemData.cs" />
+     <Compile Include="Assets\Scripts\BotonesCanvas\BotonesPausa.cs" />
      <Compile Include="Assets\Scripts\Laberinto\DialogoArana.cs" />
      <Compile Include="Assets\Scripts\Principal\Inventario\InventoryUI.cs" />
      <Compile Include="Assets\Bosque\Lowpoly_Demos\Environment_Free\Helpers\PlayerMovement.cs" />
@@ -58,6 +59,7 @@
      <Compile Include="Assets\Scripts\Principal\Inventario\ItemObject.cs" />
      <Compile Include="Assets\Troll_Сannibal\Script\TrolControl.cs" />
      <Compile Include="Assets\Scripts\ArbolSabio\SceneDcha.cs" />
+     <Compile Include="Assets\Scripts\BotonesCanvas\BotonesInicio.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Bosque\Lowpoly_Environments\Sources\Shaders\PT_Water_Shader_WebGl.shader" />

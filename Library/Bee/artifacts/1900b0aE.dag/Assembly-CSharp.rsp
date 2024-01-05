@@ -109,7 +109,6 @@
 -define:ENABLE_UNITY_COLLECTIONS_CHECKS
 -define:ENABLE_BURST_AOT
 -define:UNITY_TEAM_LICENSE
--define:UNITY_PRO_LICENSE
 -define:ENABLE_CUSTOM_RENDER_TEXTURE
 -define:ENABLE_DIRECTOR
 -define:ENABLE_LOCALIZATION
@@ -360,6 +359,8 @@
 "Assets/Scripts/ArbolSabio/DialogueArbol.cs"
 "Assets/Scripts/ArbolSabio/SceneDcha.cs"
 "Assets/Scripts/ArbolSabio/SceneIzq.cs"
+"Assets/Scripts/BotonesCanvas/BotonesInicio.cs"
+"Assets/Scripts/BotonesCanvas/BotonesPausa.cs"
 "Assets/Scripts/Laberinto/DialogoArana.cs"
 "Assets/Scripts/Laberinto/Manzana.cs"
 "Assets/Scripts/Laberinto/SonidoPuerta.cs"

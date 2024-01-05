@@ -5,6 +5,18 @@ using UnityEngine.UI;
 
 public class Movimiento : MonoBehaviour
 {
+    public GameObject pauseMenu;
+
+    [Header("Movimiento del Personaje")]
+    CharacterController characterController;
+    public float walkSpeed = 6.0f;
+    public float jumpSpeed = 8.0f;
+    public float gravedad = 20.0f;
+    private Vector3 move = Vector3.zero;
+
+    public bool bloqueado = false;
+
+
     public float velocidad = 5.0f;
     public Vector2 sensibilidad;
     public new Transform camera;
@@ -19,12 +31,25 @@ public class Movimiento : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        characterController = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!estaEnDialogo)
+        // pausar con escape
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseMenu.SetActive(true);
+            Time.timeScale = 0;
+            // hacemos visible el cursor
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            bloqueado = true;
+        }
+
+        if (!estaEnDialogo && !bloqueado)
         {
             UpdateMouseLook();
             UpdateMovimiento();
@@ -61,26 +86,20 @@ public class Movimiento : MonoBehaviour
 
     private void UpdateMovimiento()
     {
-        // Obtén la entrada del teclado
-        float movimientoHorizontal = Input.GetAxis("Horizontal");
-        float movimientoVertical = Input.GetAxis("Vertical");
-
-        // Calcula la dirección del movimiento
-        Vector3 movimiento = new Vector3(movimientoHorizontal, 0, movimientoVertical);
-
-        // Normaliza el vector de movimiento para evitar movimientos diagonales más rápidos
-        movimiento.Normalize();
-
-        // Aplica el movimiento al personaje
-        transform.Translate(movimiento * velocidad * Time.deltaTime);
-
-        // Verificar si se presiona la tecla de espacio y el personaje está en el suelo
-        if (Input.GetButtonDown("Jump") && enSuelo)
+        if (characterController.isGrounded)
         {
-            // Aplicar una fuerza vertical para el salto
-            GetComponent<Rigidbody>().AddForce(Vector3.up * saltoFuerza, ForceMode.Impulse);
-            enSuelo = false; // El personaje ya no está en el suelo
+            move = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+            move = transform.TransformDirection(move) * walkSpeed;
+
+            // Salto
+            if (Input.GetKey(KeyCode.Space))
+            {
+                move.y = jumpSpeed;
+            }
         }
+
+        move.y -= gravedad * Time.deltaTime;
+        characterController.Move(move * Time.deltaTime);
     }
     // Detectar cuando el personaje toca el suelo
     private void OnCollisionEnter(Collision collision)
