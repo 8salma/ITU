@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Prologo : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class Prologo : MonoBehaviour
         tiempo_start += Time.deltaTime;//Función para que la variable tiempo_start vaya contando segundos.
         if (tiempo_start >= tiempo_end) //Si pasan los segundos que hemos puesto antes...
         {
-            Application.LoadLevel(2);
+            SceneManager.LoadScene(2);
         }
     }
 }

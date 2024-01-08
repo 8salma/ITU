@@ -1648,6 +1648,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3547d9e32381fff419881dc0110c104a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 4714152391609651294}
+  dialoguePanel: {fileID: 872790440}
+  dialogueText: {fileID: 1956877074}
+  dialogueLines:
+  - "Algo empieza a llamar la atenci\xF3n de Caperucita en los \xE1rboles"
+  - "(Un humo verde empieza a emanar de los \xE1rboles)"
+  - 'Poco a poco Caperucita se va quedando dormida
+
+'
 --- !u!1 &607373773
 GameObject:
   m_ObjectHideFlags: 0
@@ -5480,6 +5489,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d535b7c2d3a635140b3213e2bf728735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 4714152391609651294}
+  dialoguePanel: {fileID: 872790440}
+  dialogueText: {fileID: 1956877074}
+  dialogueLines:
+  - "Algo empieza a llamar la atenci\xF3n de Caperucita en los \xE1rboles"
+  - "(Un humo verde empieza a emanar de los \xE1rboles)"
+  - 'Poco a poco Caperucita se va quedando dormida
+
+'
 --- !u!1 &1848925387
 GameObject:
   m_ObjectHideFlags: 0
