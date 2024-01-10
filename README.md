@@ -1,11 +1,14 @@
 # Videojuego para la asignatura optativa Fundamentos de Videojuegos por alumnos de la UPM
 
 ## Autores:
-- Salma Pérez 
 - Alejandra Charcape
-- Víctor Valdeolmos
+- Irene de la Rubia
 - Pablo Fernández
 - Juan Diego Matiaci
-- Irene de la Rubia
+- Salma Pérez 
+- Víctor Valdeolmos
 
 ### Descripción del juego: Proximamente...
+
+### Enlace al ejecutable
+https://github.com/8salma/ITU_ejecutable
